@@ -34,8 +34,8 @@ namespace DHC.Cards
         {
             //CardInfo randomCard1 = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, this.condition);
             int count = 0;
-            //DHC.instance.ExecuteAfterFrames(20, () =>
-            //{
+            DHC.instance.ExecuteAfterFrames(20, () =>
+            {
                 foreach (var person in PlayerManager.instance.players.Where(other => other.playerID != player.playerID).ToList())
                 {
                     var pData = person.data;
@@ -54,7 +54,7 @@ namespace DHC.Cards
                     CardInfo randomCard2 = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, this.condition);
                     ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard2, addToCardBar: true);
                 }
-            //});
+            });
         }
         public override void OnRemoveCard()
         {
@@ -70,7 +70,7 @@ namespace DHC.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return DHC.ArtAssets.LoadAsset<GameObject>("C_Christmas");
         }
         protected override CardInfo.Rarity GetRarity()
         {

@@ -55,7 +55,7 @@ namespace DHC.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return DHC.ArtAssets.LoadAsset<GameObject>("C_Kwanzaa");
         }
         protected override CardInfo.Rarity GetRarity()
         {

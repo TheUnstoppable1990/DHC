@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using DHC.Cards;
 using DHC.MonoBehaviours;
+using DHC.Effects;
 
 namespace HDC.Extentions
 {
@@ -31,6 +32,14 @@ namespace HDC.Extentions
                 if (ke != null)
                 {
                     ke.Destroy();
+                }
+            }
+            Love_Tap_Effect[] love_tap_Effects = gameObject.GetComponents<Love_Tap_Effect>();
+            foreach (Love_Tap_Effect lte in love_tap_Effects)
+            {
+                if (lte != null)
+                {
+                    lte.Destroy();
                 }
             }
         }

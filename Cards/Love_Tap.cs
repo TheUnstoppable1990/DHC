@@ -7,57 +7,57 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using DHC.Utilities;
-using DHC.MonoBehaviours;
+using ModdingUtils.Extensions;
+using DHC.Effects;
 
-namespace DHC.Cards.KWZ
+namespace DHC.Cards
 {
-    class Kuumba : CustomCard
+    class Love_Tap : CustomCard
     {
-        internal static CardInfo self = null;
-        private Kuumba_Effect kuumba_Effect;
+        private float damage_reduction = 0.5f;
+        public Love_Tap_Effect effect = null;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            //base.SetupCard(cardInfo, gun, cardStats, statModifiers);           
+            cardInfo.allowMultiple = false;            
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            this.kuumba_Effect = player.gameObject.AddComponent<Kuumba_Effect>();
+            gun.bulletDamageMultiplier = (1 - damage_reduction);
+            gun.projectileColor = Color.magenta;
+            effect = player.gameObject.GetOrAddComponent<Love_Tap_Effect>();
+
         }
         public override void OnRemoveCard()
         {
-            Destroy(this.kuumba_Effect);
+            effect.Destroy();
         }
         protected override string GetTitle()
         {
-            return "Kuumba\n(Creativity)";
+            return "Love Tap";
         }
         protected override string GetDescription()
         {
-            return "Your bullets are all colorful now.";
+            return "Your Bullets Now Heal Your Loved Ones";
         }
         protected override GameObject GetCardArt()
         {
-            return DHC.ArtAssets.LoadAsset<GameObject>("C_Green_Candle");
+            return DHC.ArtAssets.LoadAsset<GameObject>("C_Love_Tap");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-                
+                 CardTools.FormatStat(false,"Damage",-damage_reduction)
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.PoisonGreen;
-        }
-        public override bool GetEnabled()
-        {
-            return false;
-        }
+            return CardThemeColor.CardThemeColorType.MagicPink;
+        }        
         public override string GetModName()
         {
             return "DHC";

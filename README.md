@@ -12,6 +12,18 @@ Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set 
 ## Cards Added
 -------------
 
+### Love Tap
+
+-----------------
+
+-Heals your teamates and yourself with your bullets at the cost of some damage
+
+### Groundhog Day
+
+-----------------
+
+-Gives your more lives while making them miserable and sluggish 
+
 ### Christmas Day
 
 -----------------
@@ -33,6 +45,22 @@ Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set 
 ### Version Notes
 
 -----------------
+
+### v1.0.0
+
+----------
+
+-Updates
+
+	-All the cards art and have a complete look (hence 1.0 release)
+
+	-Added Groundhog Day and Love Tap (for valentines day)
+
+-To Do List
+
+	-Implement seasonal rarity, work on winter cards to make them a little more dispersed on benefits
+
+	-Add more holiday cards
 
 ### v0.1.0
 

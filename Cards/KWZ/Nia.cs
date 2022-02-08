@@ -36,7 +36,7 @@ namespace DHC.Cards.KWZ
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return DHC.ArtAssets.LoadAsset<GameObject>("C_Green_Candle");
         }
         protected override CardInfo.Rarity GetRarity()
         {

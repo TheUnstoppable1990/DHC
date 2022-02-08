@@ -8,63 +8,62 @@ using UnboundLib.Cards;
 using UnityEngine;
 using DHC.Utilities;
 using ModdingUtils.Extensions;
+using DHC.Effects;
 
 namespace DHC.Cards
 {
-    class Hanukkah : CustomCard
+    class Groundhog_Day : CustomCard
     {
+        private int extra_lives = 4;
+        private float health_reduction = 0.5f;
+        private float movement_reduction = 0.5f;
+        private float jump_reduction = 0.25f;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             cardInfo.allowMultiple = false;
-            cardInfo.GetAdditionalData().canBeReassigned = false;
-            cardInfo.categories = new CardCategory[]
-            {
-                CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardManipulation")
-            };
+            statModifiers.health = 1f - health_reduction;
+            statModifiers.movementSpeed = 1f - movement_reduction;
+            statModifiers.jump = 1f - jump_reduction;
+
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            for(int i = 0; i< 8; i++)
-            {
-                CardInfo randomCard = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, this.condition);
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, addToCardBar: true);
-            }
+            characterStats.respawns += extra_lives;
         }
         public override void OnRemoveCard()
         {
-            //base.OnRemoveCard();
+            
         }
         protected override string GetTitle()
         {
-            return "Hanukkah";
+            return "Groundhog Day";
         }
         protected override string GetDescription()
         {
-            return "Get 8 random common cards";
+            return "\"Okay campers, rise, and shine, and don\'t forget your booties \'cause it\'s cold out there… it\'s cold out there every day.\"";
         }
         protected override GameObject GetCardArt()
         {
-            return DHC.ArtAssets.LoadAsset<GameObject>("C_Hanukkah");
+            return DHC.ArtAssets.LoadAsset<GameObject>("C_Groundhog_Day");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
             {
-                
+                 CardTools.FormatStat(true,"Extra Lives",extra_lives),
+                 CardTools.FormatStat(false,"Health",-health_reduction),
+                 CardTools.FormatStat(false,"Movement Speed",movement_reduction),
+                 CardTools.FormatStat(false,"Jump Heigh",jump_reduction)
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
-        }
-        public bool condition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            return (card.rarity == CardInfo.Rarity.Common) && !card.categories.Intersect(Christmas.noLotteryCategories).Any();
-        }
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
+        }        
         public override string GetModName()
         {
             return "DHC";

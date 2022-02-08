@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Remove="AssetsEmbedded\dhc_card_asset_bundle" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AssetsEmbedded\dhc_card_asset_bundle" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -81,6 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\Christmas.cs" />
+    <Compile Include="Cards\Groundhog_Day.cs" />
+    <Compile Include="Cards\Love_Tap.cs" />
     <Compile Include="Cards\Hanukkah.cs" />
     <Compile Include="Cards\Kwanzaa.cs" />
     <Compile Include="Cards\KWZ\Ujamaa.cs" />
@@ -91,6 +99,7 @@
     <Compile Include="Cards\KWZ\Kujichagulia .cs" />
     <Compile Include="Cards\KWZ\Umoja .cs" />
     <Compile Include="DHC.cs" />
+    <Compile Include="Effects\Love_Tap_Effect.cs" />
     <Compile Include="Extentions\CustomEffects.cs" />
     <Compile Include="MonoBehaviours\Imani_Effect.cs" />
     <Compile Include="MonoBehaviours\Kuumba_Effect.cs" />
