@@ -74,6 +74,10 @@ namespace DHC.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
+            if (DateTools.DayOf(Holidays.GetChristmas()))
+            {
+                return CardInfo.Rarity.Uncommon;
+            }
             return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat [] GetStats()

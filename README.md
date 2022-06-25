@@ -7,10 +7,22 @@ Thank you to everyone in the ROUNDS modding community, who helped me, especially
 ## Easy Installation Instructions
 ---------------------------------
 
-Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set up a Rounds profile, and add `HDC` to the profile. All dependencies will be automatically installed. Just click `Start Modded` to start playing!
+Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set up a Rounds profile, and add `DHC` to the profile. All dependencies will be automatically installed. Just click `Start Modded` to start playing!
 
 ## Cards Added
 -------------
+
+### Four Leaf Clover
+
+-----------------
+
+-Has a 1 in 4 chance of doing 17x damage
+
+-Rare year round
+
+-Uncommon the week leading up to and after St. Patrick's Day
+
+-Common the day of St. Patrick's Day
 
 ### Love Tap
 
@@ -18,11 +30,19 @@ Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set 
 
 -Heals your teamates and yourself with your bullets at the cost of some damage
 
+-Rare year round
+
+-Uncommon the week leading up to and after Valentine's Day
+
 ### Groundhog Day
 
 -----------------
 
 -Gives your more lives while making them miserable and sluggish 
+
+-Rare year round
+
+-Uncommon on Groundhog's Day
 
 ### Christmas Day
 
@@ -30,11 +50,23 @@ Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set 
 
 -Gives you a rare card for every player and also gives every other a rare card as well
 
+-Unavailable most of the year
+
+-Rare the week leading up to and after Christmas
+
+-Uncommon on Christmas Day
+
 ### Hanukkah
 
 -----------------
 
 -Gives you 8 random common cards, depending on what they are that could be great or like socks or something.
+
+-Unavailable most of the year
+
+-Rare the week leading up to and after Hanukkah 
+
+-Uncommon during Hanukkah
 
 ### Kwanzaa
 
@@ -42,9 +74,33 @@ Download [r2modman](https://rounds.thunderstore.io/package/ebkr/r2modman/), set 
 
 -Gives you 7 Kwanzaa based common cards, adding up to one powerful rare card IMHO
 
+-Unavailable most of the year
+
+-Rare the week leading up to and after Kwanzaa 
+
+-Uncommon during Kwanzaa
+
 ### Version Notes
 
 -----------------
+
+### v1.1.1
+
+----------
+
+-Updates
+
+	-New Card: Four Leaf Clover
+
+### v1.1.0
+
+----------
+
+-Updates
+	
+	-Now Introduction SEASONAL RARITY
+
+		-Seasonal Rarity is a new mechanic that some cards will be more easily available certain times of year and will be indicated in the Card Info above
 
 ### v1.0.0
 

@@ -1,54 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
+using UnboundLib.Utils;
 using UnityEngine;
 using DHC.Utilities;
 using ModdingUtils.Extensions;
+using CardChoiceSpawnUniqueCardPatch;
 using DHC.Effects;
-
 namespace DHC.Cards
 {
-    class Groundhog_Day : CustomCard
+    class Four_Leaf_Clover : CustomCard
     {
-        private int extra_lives = 4;
-        private float health_reduction = 0.5f;
-        private float movement_reduction = 0.5f;
-        private float jump_reduction = 0.25f;
+        private float damage_multiplier = 17f;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.health = 1f - health_reduction;
-            statModifiers.movementSpeed = 1f - movement_reduction;
-            statModifiers.jump = 1f - jump_reduction;
-
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            characterStats.respawns += extra_lives;
+           if (gunAmmo.maxAmmo < 4)
+            {
+                gunAmmo.maxAmmo = 4;
+            }
+            var fourLeaf = player.gameObject.AddComponent<Four_Leaf_Clover_Effect>();
+            fourLeaf.multiplier = damage_multiplier;
         }
         public override void OnRemoveCard()
         {
-            
+
         }
         protected override string GetTitle()
         {
-            return "Groundhog Day";
+            return "Four Leaf Clover";
         }
         protected override string GetDescription()
         {
-            return "\"Okay campers, rise, and shine, and don\'t forget your booties \'cause it\'s cold out there… it\'s cold out there every day.\"";
+            return $"1 in 4 chance of getting a lucky strike doing {damage_multiplier} times damage";
         }
         protected override GameObject GetCardArt()
         {
-            return DHC.ArtAssets.LoadAsset<GameObject>("C_Groundhog_Day");
+            return DHC.ArtAssets.LoadAsset<GameObject>("C_Four_Leaf_Clover");
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            if (DateTools.DayOf(Holidays.GetGroundhog()))
+            if (DateTools.DayOf(Holidays.GetStPatrick()))
+            {
+                return CardInfo.Rarity.Common;
+            }
+            else if (DateTools.WeekOf(Holidays.GetStPatrick()))
             {
                 return CardInfo.Rarity.Uncommon;
             }
@@ -58,19 +62,17 @@ namespace DHC.Cards
         {
             return new CardInfoStat[]
             {
-                 CardTools.FormatStat(true,"Extra Lives",extra_lives),
-                 CardTools.FormatStat(false,"Health",-health_reduction),
-                 CardTools.FormatStat(false,"Movement Speed",-movement_reduction),
-                 CardTools.FormatStat(false,"Jump Height",-jump_reduction)
+                 CardTools.FormatStat(true,"Ammo","At least 4")
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.FirepowerYellow;
-        }        
+            return CardThemeColor.CardThemeColorType.PoisonGreen;
+        }
         public override string GetModName()
         {
             return "DHC";
         }
     }
 }
+

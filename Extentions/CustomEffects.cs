@@ -42,6 +42,14 @@ namespace HDC.Extentions
                     lte.Destroy();
                 }
             }
+            Four_Leaf_Clover_Effect[] four_Leaf_Clover_Effects = gameObject.GetComponents<Four_Leaf_Clover_Effect>();
+            foreach(Four_Leaf_Clover_Effect flce in four_Leaf_Clover_Effects)
+            {
+                if (flce != null)
+                {
+                    flce.Destroy();
+                }
+            }
         }
 
     }

@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\Christmas.cs" />
+    <Compile Include="Cards\Four_Leaf_Clover.cs" />
     <Compile Include="Cards\Groundhog_Day.cs" />
     <Compile Include="Cards\Love_Tap.cs" />
     <Compile Include="Cards\Hanukkah.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Cards\KWZ\Kujichagulia .cs" />
     <Compile Include="Cards\KWZ\Umoja .cs" />
     <Compile Include="DHC.cs" />
+    <Compile Include="Effects\Four_Leaf_Clover_Effect.cs" />
     <Compile Include="Effects\Love_Tap_Effect.cs" />
     <Compile Include="Extentions\CustomEffects.cs" />
     <Compile Include="MonoBehaviours\Imani_Effect.cs" />
@@ -106,6 +108,8 @@
     <Compile Include="Patches\PlayerPatchFullReset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\CardTools.cs" />
+    <Compile Include="Utilities\Holidays.cs" />
+    <Compile Include="Utilities\DateTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json" />

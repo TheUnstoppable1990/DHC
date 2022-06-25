@@ -45,7 +45,11 @@ namespace DHC.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            if (DateTools.WeekOf(Holidays.GetValentine()))
+            {
+                return CardInfo.Rarity.Uncommon;
+            }
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
